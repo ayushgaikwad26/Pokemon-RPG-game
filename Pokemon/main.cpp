@@ -1,10 +1,10 @@
 #include <iostream>
-#include <limits> 
 #include <string>
 using namespace std;
 
+
 void clearConsole() {
-    
+  
 #ifdef _WIN32
     system("cls");
 #else
@@ -22,7 +22,7 @@ enum class PokemonChoice {
     CHARMANDER = 1,
     BULBASAUR,
     SQUIRTLE,
-    PIKACHU 
+    PIKACHU // Default choice
 };
 
 
@@ -41,14 +41,14 @@ public:
     PokemonType type;
     int health;
 
-   
+    
     Pokemon() {
         name = "Unknown";
         type = PokemonType::NORMAL;
         health = 50;
     }
 
-    
+   
     Pokemon(std::string p_name, PokemonType p_type, int p_health) {
         name = p_name;
         type = p_type;
@@ -64,7 +64,7 @@ public:
 
     
     ~Pokemon() {
-       
+        
     }
 
     void attack() { std::cout << name << " attacks with a powerful move!\n"; }
@@ -104,7 +104,7 @@ public:
             break;
         }
         cout << "Player " << name << " chose " << chosenPokemon.name << "!\n";
-        waitForEnter(); 
+        waitForEnter(); // 
     }
 };
 
@@ -113,7 +113,7 @@ class ProfessorOak {
 public:
     string name;
 
-    
+
     ProfessorOak(string p_name) { name = p_name; }
 
     void greetPlayer(Player& player) {
@@ -161,7 +161,7 @@ public:
 
     
     void explainMainQuest(Player& player) {
-        
+        // Clear the console
         clearConsole();
 
         cout << "Professor Oak: " << player.name
@@ -225,10 +225,10 @@ void gameLoop(Player& player) {
     bool keepPlaying = true;
 
     while (keepPlaying) {
-       
+        
         clearConsole();
 
-       
+        
         cout << "\nWhat would you like to do next, " << player.name << "?\n";
         cout << "1. Battle Wild Pokémon\n";
         cout << "2. Visit PokeCenter\n";
@@ -238,7 +238,7 @@ void gameLoop(Player& player) {
         cout << "Enter your choice: ";
         cin >> choice;
 
-        
+       
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
 
@@ -277,7 +277,6 @@ void gameLoop(Player& player) {
         }
 
         
-       
         waitForEnter();
     }
 
@@ -289,7 +288,7 @@ int main() {
     Pokemon charmander("Charmander", PokemonType::FIRE,
         100); 
 
-    
+   
     ProfessorOak professor("Professor Oak");
     Player player("Ash", charmander);
 
@@ -297,7 +296,7 @@ int main() {
     professor.greetPlayer(player);
     professor.offerPokemonChoices(player);
 
-    
+   
     professor.explainMainQuest(player);
 
     
