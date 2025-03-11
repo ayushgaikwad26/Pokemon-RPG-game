@@ -48,7 +48,7 @@ public:
         health = 50;
     }
 
-   
+   // parameterized cons
     Pokemon(std::string p_name, PokemonType p_type, int p_health) {
         name = p_name;
         type = p_type;
@@ -284,22 +284,22 @@ void gameLoop(Player& player) {
 }
 
 int main() {
-    
-    Pokemon charmander("Charmander", PokemonType::FIRE,
-        100); 
 
-   
+    Pokemon charmander("Charmander", PokemonType::FIRE,
+        100);
+
+
     ProfessorOak professor("Professor Oak");
     Player player("Ash", charmander);
 
-    
+
     professor.greetPlayer(player);
     professor.offerPokemonChoices(player);
 
-   
+
     professor.explainMainQuest(player);
 
-    
+
     gameLoop(player);
 
     return 0;
