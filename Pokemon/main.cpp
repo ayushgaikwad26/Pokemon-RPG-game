@@ -1,3 +1,5 @@
+#include "Player.hpp"
+#include "Pokemon.hpp"
 #include "PokemonChoice.hpp"
 #include "PokemonType.hpp"
 #include "Utility.hpp"
@@ -5,80 +7,6 @@
 #include <limits> // Include this header to use numeric_limits
 #include <string>
 using namespace std;
-
-// Pokemon class definition
-class Pokemon {
-public:
-   string name;
-  PokemonType type;
-  int health;
-
-  // Default constructor
-  Pokemon() {
-    name = "Unknown";
-    type = PokemonType::NORMAL;
-    health = 50;
-  }
-
-  // Parameterized constructor
-  Pokemon(string p_name, PokemonType p_type, int p_health) {
-    name = p_name;
-    type = p_type;
-    health = p_health;
-  }
-
-  // Copy constructor
-  Pokemon(const Pokemon &other) {
-    name = other.name;
-    type = other.type;
-    health = other.health;
-  }
-
-  // Destructor
-  ~Pokemon() {
-    // Destructor message removed
-  }
-
-  void attack() { cout << name << " attacks with a powerful move!\n"; }
-};
-
-// Player class definition
-class Player {
-public:
- string name;
-  Pokemon chosenPokemon;
-
-  // Default constructor
-  Player() {
-    name = "Trainer";
-    chosenPokemon = Pokemon(); // Using the default Pokemon constructor
-  }
-
-  // Parameterized constructor
-  Player(string p_name, Pokemon p_chosenPokemon) {
-    name = p_name;
-    chosenPokemon = p_chosenPokemon;
-  }
-
-  void choosePokemon(int choice) {
-    switch ((PokemonChoice)choice) {
-    case PokemonChoice::CHARMANDER:
-      chosenPokemon = Pokemon("Charmander", PokemonType::FIRE, 100);
-      break;
-    case PokemonChoice::BULBASAUR:
-      chosenPokemon = Pokemon("Bulbasaur", PokemonType::GRASS, 100);
-      break;
-    case PokemonChoice::SQUIRTLE:
-      chosenPokemon = Pokemon("Squirtle", PokemonType::WATER, 100);
-      break;
-    default:
-      chosenPokemon = Pokemon("Pikachu", PokemonType::ELECTRIC, 100);
-      break;
-    }
-    cout << "Player " << name << " chose " << chosenPokemon.name << "!\n";
-    Utility::waitForEnter(); // Wait for user to press Enter before proceeding
-  }
-};
 
 // ProfessorOak class definition
 class ProfessorOak {
@@ -136,7 +64,7 @@ public:
     // Clear the console
     Utility::clearConsole();
 
-  cout << "Professor Oak: " << player.name
+    cout << "Professor Oak: " << player.name
               << "!, I am about to explain you about your upcoming grand "
                  "adventure.\n";
     Utility::waitForEnter();
@@ -149,12 +77,12 @@ public:
            "Pokémon Badges and conquer the Pokémon League.\n";
     Utility::waitForEnter();
 
-  cout << "\n"
+    cout << "\n"
               << player.name
               << ": Wait... that sounds a lot like every other Pokémon game "
                  "out there...\n";
     Utility::waitForEnter();
-   cout << "Professor Oak: Shhh! Don't break the fourth wall, "
+    cout << "Professor Oak: Shhh! Don't break the fourth wall, "
               << player.name << "! This is serious business!\n";
     Utility::waitForEnter();
 
@@ -167,7 +95,7 @@ public:
                  "many Pokémon you can carry, so choose wisely!\n";
     Utility::waitForEnter();
 
-   cout << "\n"
+    cout << "\n"
               << player.name << ": Sounds like a walk in the park... right?\n";
     Utility::waitForEnter();
     cout << "Professor Oak: Hah! That’s what they all say! But beware, "
