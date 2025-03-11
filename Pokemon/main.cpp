@@ -48,7 +48,7 @@ public:
         health = 50;
     }
 
-   // parameterized cons
+   
     Pokemon(std::string p_name, PokemonType p_type, int p_health) {
         name = p_name;
         type = p_type;
@@ -161,7 +161,7 @@ public:
 
     
     void explainMainQuest(Player& player) {
-        // Clear the console
+       
         clearConsole();
 
         cout << "Professor Oak: " << player.name
