@@ -14,4 +14,5 @@ void battle(Pokemon &playerPokemon, Pokemon &wildPokemon) {
     } else {
         cout << "You defeated the wild " << wildPokemon.name << "!\\n";
     }
+    
 }
